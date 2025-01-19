@@ -17,23 +17,30 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public void removeEmploye(int index) {
+    public void removeEmployee(int index) {
         employees.remove(index);
     }
-
-
 
     @Override
     public void displayEmployees(){
         for(Employee emp: employees){
-            System.out.println("Name: " + emp.getName() + ", Employee Number " +  emp.getEmpNumber() + ", Position: " + emp.getPosition());
+            System.out.println("Name: " + emp.getName() + ", Employee Number: " +  emp.getEmpNumber() + ", Position: " + emp.getPosition());
         }
     }
 
     @Override
     public void updateEmployee(Employee employee, int index) {
-        Employee update = employees.get(1);
-        update.setName("ouydcjxfhxcghjv");
+        Employee update = employees.get(index);
+
+        if (index >= 0) {
+            update.setName(employee.getName());
+            update.setPosition(employee.getPosition());
+            update.setEmpNumber(employee.getEmpNumber());
+        } else {
+            System.out.println("Invalid index.");
+        }
+
+
     }
 
 
